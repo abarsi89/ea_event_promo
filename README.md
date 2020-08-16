@@ -7,6 +7,24 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Rendezvény promotáló oldal
+
+A projekt beüzemeléséhez az alábbi lépéseket kell megtenni:
+
+- a projekt leklónozása után létre kell hozni egy adatbázist egy tetszőleges néven (pl.: ea_event_promo)
+- az .env file-ban ezt a nevet be kell állítanunk a DB_DATABASE-nek, illetve alatta (DB_USERNAME, DB_PASSWORD) meg kell adnunk az adatbázis hozzáférésünket
+- console-ban futtatnunk kell az alábbi parancsot: "php artisan migrate", ezzel létrehozzunk az adatbázis megfelelő szerkezetét
+- az alkalmazás innentől tulajdonképpen működőképes: lehet új user-t regisztrálni és vele belépni, de ha teszt adatokat is szeretnénk az adatbázisba, akkor: "php artisan migrate:refresh --seed"
+    - a tesztadatok tartalmaznak fellépőket, helyszíneket, rendezvényeket és két usert
+    - első user belépőadatai:
+        - email cím: john@doe.com
+        - jelszó: john
+    - második user belépőadatai:
+        - email: jane@doe.com
+        - jelszó: jane
+- szükséges lehet még futtatni a megfelelő adatbázisszerkezethez és adatokhoz: "composer dumpautoload" és ezután "php artisan migrate" és "php artisan migrate:refresh --seed"
+- ezek után elindítjuk a szervert: "php artisan serve" és a http://127.0.0.1:8000 címen elérhetővé válik az alkalmazás
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
